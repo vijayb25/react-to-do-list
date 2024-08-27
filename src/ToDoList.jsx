@@ -8,11 +8,14 @@ function ToDoList() {
     const [activeTab, setActiveTab] = useState("tasks");
 
     function addTask(){
-        const newTask = {name: taskName};
-        
 
-        setTasks(prevTask => [...prevTask, newTask]);
-        setTaskName("");
+        if(taskName.trim() !== ""){
+            const newTask = {name: taskName};
+
+            setTasks(prevTask => [...prevTask, newTask]);
+            setTaskName("");
+        }
+
     }
 
     function handleTaskChange(e){
@@ -30,7 +33,7 @@ function ToDoList() {
     }
 
     return(
-        <>
+        
         <div className='mainBox'>
         <h1>To-Do-List</h1>
         
@@ -85,7 +88,7 @@ function ToDoList() {
             </div>
         )}
         </div>
-        </>
+        
     )
 }
 
